@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Как найти лицо</title>
+    <title>Как найти лицо<title>
     <link rel="stylesheet" href="Data/style.css" />
-    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
   </head>
   <body style="text-align: center;">
     <canvas id="unity-canvas"></canvas>
@@ -28,12 +28,13 @@
       const script = document.createElement('script');
 
       script.src = loaderUrl;
-      script.onload = () => 
+
+      script.onload = async () => 
 	  {
         try 
 		{
-		  vkBridge.send('VKWebAppInit');
-          createUnityInstance(canvas,config);
+		  await vkBridge.send('VKWebAppInit');
+          await createUnityInstance(canvas,config);
         } 
 		catch (error) 
 		{
