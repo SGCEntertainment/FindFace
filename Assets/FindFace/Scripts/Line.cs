@@ -12,7 +12,7 @@ public class Line : MonoBehaviour, IMovable
 
     public void Move()
     {
-        float y = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
-        transform.position = new Vector2(transform.position.x, y);
+        Vector2 mouseLocal = transform.parent.InverseTransformPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        transform.localPosition = new Vector2(transform.localPosition.x, mouseLocal.y);
     }
 }
